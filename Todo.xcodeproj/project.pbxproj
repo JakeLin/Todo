@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CEBBA10419CB999E00DC5E9C /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBBA10319CB999E00DC5E9C /* TodoModel.swift */; };
+		CEBBA10719CEFEBF00DC5E9C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBBA10619CEFEBF00DC5E9C /* DetailViewController.swift */; };
+		CEBBA11019D15D5200DC5E9C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBBA10F19D15D5200DC5E9C /* Common.swift */; };
 		CEE078A819C81EF000E4A01A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE078A719C81EF000E4A01A /* AppDelegate.swift */; };
-		CEE078AA19C81EF000E4A01A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE078A919C81EF000E4A01A /* ViewController.swift */; };
 		CEE078AD19C81EF000E4A01A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE078AB19C81EF000E4A01A /* Main.storyboard */; };
 		CEE078AF19C81EF000E4A01A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE078AE19C81EF000E4A01A /* Images.xcassets */; };
 		CEE078B219C81EF000E4A01A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE078B019C81EF000E4A01A /* LaunchScreen.xib */; };
 		CEE078BE19C81EF000E4A01A /* TodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE078BD19C81EF000E4A01A /* TodoTests.swift */; };
+		CEE078CA19C81FDE00E4A01A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE078C919C81FDE00E4A01A /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +29,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CEBBA10319CB999E00DC5E9C /* TodoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
+		CEBBA10519CEF3F000DC5E9C /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		CEBBA10619CEFEBF00DC5E9C /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CEBBA10F19D15D5200DC5E9C /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		CEE078A219C81EF000E4A01A /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE078A619C81EF000E4A01A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEE078A719C81EF000E4A01A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CEE078A919C81EF000E4A01A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CEE078AC19C81EF000E4A01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEE078AE19C81EF000E4A01A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEE078B119C81EF000E4A01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CEE078B719C81EF000E4A01A /* TodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE078BC19C81EF000E4A01A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEE078BD19C81EF000E4A01A /* TodoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTests.swift; sourceTree = "<group>"; };
+		CEE078C919C81FDE00E4A01A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,11 +85,15 @@
 			isa = PBXGroup;
 			children = (
 				CEE078A719C81EF000E4A01A /* AppDelegate.swift */,
-				CEE078A919C81EF000E4A01A /* ViewController.swift */,
+				CEBBA10F19D15D5200DC5E9C /* Common.swift */,
+				CEBBA10319CB999E00DC5E9C /* TodoModel.swift */,
+				CEE078C919C81FDE00E4A01A /* ViewController.swift */,
+				CEBBA10619CEFEBF00DC5E9C /* DetailViewController.swift */,
 				CEE078AB19C81EF000E4A01A /* Main.storyboard */,
 				CEE078AE19C81EF000E4A01A /* Images.xcassets */,
 				CEE078B019C81EF000E4A01A /* LaunchScreen.xib */,
 				CEE078A519C81EF000E4A01A /* Supporting Files */,
+				CEBBA10519CEF3F000DC5E9C /* MyPlayground.playground */,
 			);
 			path = Todo;
 			sourceTree = "<group>";
@@ -212,8 +223,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE078AA19C81EF000E4A01A /* ViewController.swift in Sources */,
+				CEBBA10419CB999E00DC5E9C /* TodoModel.swift in Sources */,
+				CEE078CA19C81FDE00E4A01A /* ViewController.swift in Sources */,
 				CEE078A819C81EF000E4A01A /* AppDelegate.swift in Sources */,
+				CEBBA11019D15D5200DC5E9C /* Common.swift in Sources */,
+				CEBBA10719CEFEBF00DC5E9C /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +419,7 @@
 				CEE078C319C81EF000E4A01A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CEE078C419C81EF000E4A01A /* Build configuration list for PBXNativeTarget "TodoTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +428,7 @@
 				CEE078C619C81EF000E4A01A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
