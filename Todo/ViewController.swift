@@ -22,6 +22,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 TodoModel(id: "3", image: "phone-selected", title: "打电话", date: dateFromString("2014-10-30")!)]
         
         navigationItem.leftBarButtonItem = editButtonItem()
+        
         // tableView.allowsSelectionDuringEditing = true
     }
 
@@ -71,13 +72,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.setEditing(editing, animated: true)
     }
     
-    // func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-    //    return UITableViewCellEditingStyle.Delete
-    // }
-    
     // Move the cell
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
+        return self.editing
+    }
+    
+    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        swap(&todos[sourceIndexPath.row], &todos[destinationIndexPath.row])
     }
     
     // Unwind
