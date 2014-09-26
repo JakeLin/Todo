@@ -9,8 +9,9 @@
 import UIKit
 
 var todos: [TodoModel] = []
+var filteredTodos: [TodoModel] = []
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -19,7 +20,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         todos = [TodoModel(id: "1", image: "child-selected", title: "去游乐场", date: dateFromString("2014-10-20")!),
                 TodoModel(id: "2", image: "shopping-cart-selected", title: "购物", date: dateFromString("2014-10-28")!),
-                TodoModel(id: "3", image: "phone-selected", title: "打电话", date: dateFromString("2014-10-30")!)]
+                TodoModel(id: "3", image: "phone-selected", title: "打电话", date: dateFromString("2014-10-30")!),
+                TodoModel(id: "4", image: "travel-selected", title: "Travel to Europe", date: dateFromString("2014-10-31")!)]
         
         navigationItem.leftBarButtonItem = editButtonItem()
         
@@ -33,17 +35,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK - UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todos.count
+        if tableView == searchDisplayController?.searchResultsTableView {
+            return filteredTodos.count
+        }
+        else {
+            return todos.count
+        }
     }
     
     // Display the cell
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("todoCell", forIndexPath: indexPath) as UITableViewCell
-        let todo = todos[indexPath.row] as TodoModel
+        // Must use 'self' here because searchResultsTableView needs to reuse the same cell in self.tableView
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("todoCell") as UITableViewCell
+        var todo : TodoModel
+        
+        if tableView == searchDisplayController?.searchResultsTableView {
+            todo = filteredTodos[indexPath.row] as TodoModel
+        }
+        else {
+            todo = todos[indexPath.row] as TodoModel
+        }
+
         var image = cell.viewWithTag(101) as UIImageView
         var title = cell.viewWithTag(102) as UILabel
         var date = cell.viewWithTag(103) as UILabel
-            
+        
         image.image = UIImage(named: todo.image)
         title.text = todo.title
         
@@ -55,6 +71,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         date.text = dateFormatter.stringFromDate(todo.date)
         return cell
+
     }
 
     // MARK - UITableViewDelegate
@@ -81,6 +98,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         swap(&todos[sourceIndexPath.row], &todos[destinationIndexPath.row])
     }
     
+    // MARK - UISearchDisplayDelegate
+    // Search the Cell
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
+        //filteredTodos = todos.filter({( todo: TodoModel) -> Bool in
+        //    let stringMatch = todo.title.rangeOfString(searchString)
+        //    return stringMatch != nil
+        //})
+        
+        // Same as below
+        filteredTodos = todos.filter(){$0.title.rangeOfString(searchString) != nil}
+        return true
+    }
+    
+    // MARK - Storyboard stuff
     // Unwind
     @IBAction func close(segue: UIStoryboardSegue) {
         println("closed!")
