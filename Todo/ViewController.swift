@@ -18,14 +18,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        todos = [TodoModel(id: "1", image: "child-selected", title: "去游乐场", date: dateFromString("2014-10-20")!),
-                TodoModel(id: "2", image: "shopping-cart-selected", title: "购物", date: dateFromString("2014-10-28")!),
-                TodoModel(id: "3", image: "phone-selected", title: "打电话", date: dateFromString("2014-10-30")!),
-                TodoModel(id: "4", image: "travel-selected", title: "Travel to Europe", date: dateFromString("2014-10-31")!)]
+        todos = [TodoModel(id: "1", image: "child-selected", title: "1. 去游乐场", date: dateFromString("2014-10-20")!),
+                TodoModel(id: "2", image: "shopping-cart-selected", title: "2. 购物", date: dateFromString("2014-10-28")!),
+                TodoModel(id: "3", image: "phone-selected", title: "3. 打电话", date: dateFromString("2014-10-30")!),
+                TodoModel(id: "4", image: "travel-selected", title: "4. Travel to Europe", date: dateFromString("2014-10-31")!)]
         
         navigationItem.leftBarButtonItem = editButtonItem()
         
-        // tableView.allowsSelectionDuringEditing = true
+        // hide the search bar
+        var contentOffset = tableView.contentOffset
+        contentOffset.y += searchDisplayController!.searchBar.frame.size.height
+        tableView.contentOffset = contentOffset
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,6 +86,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 80
+    }
+    
     // Edit mode
     override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
@@ -95,7 +102,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        swap(&todos[sourceIndexPath.row], &todos[destinationIndexPath.row])
+        let todo = todos.removeAtIndex(sourceIndexPath.row)
+        todos.insert(todo, atIndex: destinationIndexPath.row)
     }
     
     // MARK - UISearchDisplayDelegate
