@@ -20,7 +20,7 @@ Todo is an iOS App written in Swift. This app is used for an online video traini
 
 ![Todo](https://github.com/JakeLin/Todo/blob/master/Screenshots/4.png)
 
-**Swipe to delete*
+**Swipe to delete**
 
 ![Todo](https://github.com/JakeLin/Todo/blob/master/Screenshots/5.png)
 
