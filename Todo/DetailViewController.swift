@@ -100,7 +100,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
         if todo == nil {
             // New todo
-            let uuid = NSUUID.UUID().UUIDString
+            // let uuid = NSUUID.UUID().UUIDString
+            let uuid = NSUUID().UUIDString // Spport Xcode 6.1
             todo = TodoModel(id: uuid, image: image, title: todoItem.text, date: todoDate.date)
             todos.append(todo!)
         }
