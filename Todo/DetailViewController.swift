@@ -102,12 +102,12 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             // New todo
             // let uuid = NSUUID.UUID().UUIDString
             let uuid = NSUUID().UUIDString // Spport Xcode 6.1
-            todo = TodoModel(id: uuid, image: image, title: todoItem.text, date: todoDate.date)
+            todo = TodoModel(id: uuid, image: image, title: todoItem.text!, date: todoDate.date)
             todos.append(todo!)
         }
         else {
             todo?.image = image
-            todo?.title = todoItem.text
+            todo?.title = todoItem.text!
             todo?.date = todoDate.date
         }
     }
@@ -130,8 +130,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         todoItem.resignFirstResponder()
     }
 }
