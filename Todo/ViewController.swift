@@ -49,7 +49,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // Display the cell
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Must use 'self' here because searchResultsTableView needs to reuse the same cell in self.tableView
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("todoCell") as UITableViewCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("todoCell")! as UITableViewCell
         var todo : TodoModel
         
         if tableView == searchDisplayController?.searchResultsTableView {
@@ -59,9 +59,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             todo = todos[indexPath.row] as TodoModel
         }
 
-        var image = cell.viewWithTag(101) as UIImageView
-        var title = cell.viewWithTag(102) as UILabel
-        var date = cell.viewWithTag(103) as UILabel
+        var image = cell.viewWithTag(101) as! UIImageView
+        var title = cell.viewWithTag(102) as! UILabel
+        var date = cell.viewWithTag(103) as! UILabel
         
         image.image = UIImage(named: todo.image)
         title.text = todo.title
@@ -108,30 +108,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK - UISearchDisplayDelegate
     // Search the Cell
-    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String?) -> Bool {
         //filteredTodos = todos.filter({( todo: TodoModel) -> Bool in
         //    let stringMatch = todo.title.rangeOfString(searchString)
         //    return stringMatch != nil
         //})
         
         // Same as below
-        filteredTodos = todos.filter(){$0.title.rangeOfString(searchString) != nil}
+        filteredTodos = todos.filter(){$0.title.rangeOfString(searchString!) != nil}
         return true
     }
     
     // MARK - Storyboard stuff
     // Unwind
     @IBAction func close(segue: UIStoryboardSegue) {
-        println("closed!")
+        print("closed!")
         tableView.reloadData()
     }
     
     // Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "EditTodo" {
-            var vc = segue.destinationViewController as DetailViewController
+            var vc = segue.destinationViewController as! DetailViewController
             // var indexPath = tableView.indexPathForCell(sender as UITableViewCell)
-            var indexPath = tableView.indexPathForSelectedRow()
+            var indexPath = tableView.indexPathForSelectedRow
             if let index = indexPath {
                 vc.todo = todos[index.row]
             }

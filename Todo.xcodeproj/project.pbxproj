@@ -167,6 +167,8 @@
 		CEE0789A19C81EF000E4A01A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Jake Lin";
 				TargetAttributes = {
